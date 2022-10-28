@@ -2,13 +2,12 @@ package iterator;
 
 import conjuntoplano.Estado;
 import java.util.ArrayList;
-import iterator.Iterador;
 
-public class IteradorLista implements Iterador {
+public class IteradorListaEstatica implements Iterador {
     private ArrayList<Estado> estados;
     private int EstadoAtual;
 
-    public IteradorLista(ArrayList<Estado> estados) {
+    public IteradorListaEstatica(ArrayList<Estado> estados) {
         this.estados = estados;
         this.EstadoAtual = -1;
     }

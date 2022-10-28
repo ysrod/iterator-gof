@@ -2,7 +2,7 @@ package agregado;
 
 import conjuntoplano.Estado;
 import iterator.Iterador;
-import iterator.IteradorLista;
+import iterator.IteradorListaEstatica;
 import java.util.ArrayList;
 
 public class AgregadoBrasil implements Agregado {
@@ -20,6 +20,6 @@ public class AgregadoBrasil implements Agregado {
 
     @Override
     public Iterador criarIterador() {
-        return new IteradorLista(estados);
+        return new IteradorListaEstatica(estados);
     }
 }
