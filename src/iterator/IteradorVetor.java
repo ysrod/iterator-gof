@@ -12,14 +12,25 @@ public class IteradorVetor implements Iterador {
         this.estadoAtual = -1;
     }
 
-
     @Override
     public Estado next() {
-        return null;
+        return this.estados[++estadoAtual];
     }
 
     @Override
     public boolean hasNext() {
-        return false;
+        int proximo = estadoAtual + 1;
+        return proximo < this.estados.length && this.estados[proximo] != null;
+    }
+
+    // Como usar esse método para tratar de casos quando o array estiver cheio?
+    public void increaseArrayLimit() {
+        Estado[] aux = new Estado[this.estados.length + 10];
+
+        for (int i = 0; i < this.estados.length; i++) {
+            aux[i] = this.estados[i];
+        }
+
+        this.estados = aux;
     }
 }

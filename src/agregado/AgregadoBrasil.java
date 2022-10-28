@@ -15,7 +15,6 @@ public class AgregadoBrasil implements Agregado {
         estados.add(new Estado("Acre", "Rio Branco"));
         estados.add(new Estado("Sergipe", "Aracaju"));
         estados.add(new Estado("Minas Gerais", "Belo Horizonte"));
-
     }
 
     @Override
