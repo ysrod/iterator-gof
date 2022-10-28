@@ -7,6 +7,21 @@ public class IteradorListaDinamica implements Iterador{
     private int contador;
     private IteradorNo primeiro;
     private IteradorNo ultimo;
+    private IteradorNo atual;
+
+    public IteradorListaDinamica() {
+        this.contador = 0;
+        this.primeiro = null;
+        this.ultimo = null;
+        this.atual = null;
+    }
+
+    public IteradorListaDinamica(IteradorListaDinamica listaDinamica){
+        this.contador = listaDinamica.size();
+        this.primeiro = listaDinamica.primeiro;
+        this.ultimo =  listaDinamica.ultimo;
+        this.atual = listaDinamica.primeiro;
+    }
 
     public int size(){
         return contador;
@@ -17,6 +32,7 @@ public class IteradorListaDinamica implements Iterador{
         IteradorNo novoNo = new IteradorNo(estado);
         if (primeiro == null) {
             primeiro = novoNo;
+            atual = primeiro;
             ultimo = novoNo;
         } else {
 
@@ -38,17 +54,16 @@ public class IteradorListaDinamica implements Iterador{
         contador--;
     }
 
-
-
     @Override
     public Estado next() {
+        IteradorNo aux = atual;
+        atual = atual.getProximo();
+        return aux.getEstado();
 
-        return null;
     }
 
     @Override
     public boolean hasNext() {
-
-        return false;
+        return atual != null;
     }
 }
